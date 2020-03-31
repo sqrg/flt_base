@@ -1,7 +1,9 @@
-import 'package:flt_base/core/enums/viewstate.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flt_base/core/enums/viewstate.dart';
+
 import 'package:flt_base/core/viewmodels/login_viewmodel.dart';
+
 import 'package:flt_base/ui/views/z_base_view.dart';
 
 class LoginView extends StatefulWidget {
