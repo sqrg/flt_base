@@ -14,7 +14,7 @@ class MainView extends StatefulWidget {
 }
 
 class MainViewState extends State<MainView> {
-
+  
   var tabsList = [
     Tab1View(),
     Tab2View(),
@@ -27,27 +27,31 @@ class MainViewState extends State<MainView> {
         builder: (context, viewModel, child) => DefaultTabController(
             length: 3,
             child: Scaffold(
-              body: tabsList[viewModel.currentTabIndex],
-              bottomNavigationBar: BottomNavigationBar(
-                currentIndex: viewModel.currentTabIndex,
-                onTap: (index) {
-                  viewModel.changeTab(index);
-                },
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    title: Text('Tab 1'),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.people),
-                    title: Text('Tab 2'),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
-                    title: Text('Tab 3'),
-                  ),
-                ],
-              ),
-            )));
+                appBar: AppBar(
+                  title: Text('FLT Base Project'),
+                  centerTitle: true,
+                  leading: Container(),
+                ),
+                body: TabBarView(children: tabsList),
+                bottomNavigationBar: TabBar(
+                  tabs: <Widget>[
+                    Tab(
+                      icon: Icon(Icons.work),
+                      text: 'Tab 1',
+                    ),
+                    Tab(
+                      icon: Icon(Icons.person),
+                      text: 'Tab 2',
+                    ),
+                    Tab(
+                      icon: Icon(Icons.phone),
+                      text: 'Tab 3',
+                    ),
+                  ],
+                  labelColor: Colors.indigo,
+                  unselectedLabelColor: Colors.grey,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorColor: Colors.indigo,
+                ))));
   }
 }
