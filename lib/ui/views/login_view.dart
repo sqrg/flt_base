@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider_architecture/provider_architecture.dart';
+
 import 'package:flt_base/core/enums/viewstate.dart';
 
 import 'package:flt_base/core/viewmodels/login_viewmodel.dart';
-
-import 'package:flt_base/ui/views/z_base_view.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -17,7 +17,8 @@ class LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<LoginViewModel>(
+    return ViewModelProvider<LoginViewModel>.withConsumer(
+      viewModel: LoginViewModel(),
       builder: (context, viewModel, child) => Scaffold(
           backgroundColor: Colors.indigo,
           body: Column(

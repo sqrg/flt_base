@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider_architecture/provider_architecture.dart';
+
 import 'package:flt_base/core/viewmodels/main_viewmodel.dart';
 
 import 'package:flt_base/ui/views/tab_1_view.dart';
 import 'package:flt_base/ui/views/tab_2_view.dart';
 import 'package:flt_base/ui/views/tab_3_view.dart';
-
-import 'package:flt_base/ui/views/z_base_view.dart';
 
 class MainView extends StatefulWidget {
   @override
@@ -14,7 +14,6 @@ class MainView extends StatefulWidget {
 }
 
 class MainViewState extends State<MainView> {
-  
   var tabsList = [
     Tab1View(),
     Tab2View(),
@@ -23,7 +22,8 @@ class MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<MainViewModel>(
+    return ViewModelProvider<MainViewModel>.withConsumer(
+        viewModel: MainViewModel(),
         builder: (context, viewModel, child) => DefaultTabController(
             length: 3,
             child: Scaffold(
