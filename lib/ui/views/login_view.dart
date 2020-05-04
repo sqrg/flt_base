@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:provider_architecture/provider_architecture.dart';
+import 'package:stacked/stacked.dart';
 
 import 'package:flt_base/core/enums/viewstate.dart';
 
@@ -17,8 +16,8 @@ class LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelProvider<LoginViewModel>.withConsumer(
-      viewModel: LoginViewModel(),
+    return ViewModelBuilder<LoginViewModel>.reactive(
+      viewModelBuilder: () => LoginViewModel(),
       builder: (context, viewModel, child) => Scaffold(
           backgroundColor: Colors.indigo,
           body: Column(

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:provider_architecture/provider_architecture.dart';
-
-import 'package:flt_base/locator.dart';
+import 'package:stacked/stacked.dart';
 
 import 'package:flt_base/core/viewmodels/tab_2_viewmodel.dart';
 
@@ -14,9 +11,9 @@ class Tab2View extends StatefulWidget {
 class Tab2ViewState extends State<Tab2View> {
   @override
   Widget build(BuildContext context) {
-    return ViewModelProvider<Tab2ViewModel>.withConsumer(
-        viewModel: locator<Tab2ViewModel>(),
-        reuseExisting: true,
+    return ViewModelBuilder<Tab2ViewModel>.reactive(
+        viewModelBuilder: () => Tab2ViewModel(),
+        disposeViewModel: false,
         builder: (context, viewModel, child) => Scaffold(
               body: Center(
                   child: Container(
