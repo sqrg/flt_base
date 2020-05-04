@@ -24,7 +24,7 @@ class MainViewState extends State<MainView> {
     return ViewModelBuilder<MainViewModel>.reactive(
         viewModelBuilder: () => MainViewModel(),
         builder: (context, viewModel, child) => DefaultTabController(
-            length: 3,
+            length: tabsList.length,
             child: Scaffold(
                 appBar: AppBar(
                   title: Text('FLT Base Project'),
